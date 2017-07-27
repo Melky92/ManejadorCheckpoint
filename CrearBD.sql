@@ -6,13 +6,13 @@ CREATE TABLE Ruta
 );
 
 CREATE TABLE TipoVehiculo (
-    IdTipoVehiculo int NOT NULL PRIMARY KEY,
+    IdTipoVehiculo int IDENTITY(1,1) PRIMARY KEY,
     Etiqueta varchar(MAX) NOT NULL,
     IdRuta int NOT NULL FOREIGN KEY REFERENCES Ruta(IdRuta)
 );
 
 CREATE TABLE Vehiculo (
-    IdVehiculo int NOT NULL PRIMARY KEY,
+    IdVehiculo int IDENTITY(1,1) PRIMARY KEY,
     Placa varchar(MAX) NOT NULL,
     IdTipoVehiculo int NOT NULL FOREIGN KEY REFERENCES TipoVehiculo(IdTipoVehiculo)
 );
@@ -25,7 +25,7 @@ CREATE TABLE Ubicacion
 	Referencia varchar(MAX)
 );
 CREATE TABLE PuntoControl (
-    IdPuntoControl int NOT NULL PRIMARY KEY,
+    IdPuntoControl int IDENTITY(1,1) PRIMARY KEY,
 	DescripcionDispositivo varchar(MAX),	
     IdUbicacion int NOT NULL FOREIGN KEY REFERENCES Ubicacion(IdUbicacion)
 );

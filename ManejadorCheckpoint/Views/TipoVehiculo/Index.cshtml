@@ -1,0 +1,41 @@
+@model IEnumerable<ManejadorCheckpoint.Models.TipoVehiculo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Etiqueta)
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdRutaNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Etiqueta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdRutaNavigation.IdRuta)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdTipoVehiculo">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdTipoVehiculo">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdTipoVehiculo">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

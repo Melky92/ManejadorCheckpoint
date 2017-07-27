@@ -13,21 +13,21 @@ namespace ManejadorCheckpoint.Models
         public virtual DbSet<TipoVehiculo> TipoVehiculo { get; set; }
         public virtual DbSet<Ubicacion> Ubicacion { get; set; }
         public virtual DbSet<Vehiculo> Vehiculo { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-            optionsBuilder.UseSqlServer(@"Data Source=USER;Initial Catalog=CHECKPOINT;Integrated Security=True;Persist Security Info=True;User ID=Dell");
-        }
+        public CHECKPOINTContext(DbContextOptions<CHECKPOINTContext> options)
+            : base(options)
+        { }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+        //    optionsBuilder.UseSqlServer(@"Data Source=USER;Initial Catalog=CHECKPOINT;Integrated Security=True;Persist Security Info=True;User ID=Dell");
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<PuntoControl>(entity =>
             {
                 entity.HasKey(e => e.IdPuntoControl)
-                    .HasName("PK__PuntoCon__A2628BA2B055AF8A");
-
-                entity.Property(e => e.IdPuntoControl).ValueGeneratedNever();
+                    .HasName("PK__PuntoCon__A2628BA255E5CFCF");
 
                 entity.Property(e => e.DescripcionDispositivo).HasColumnType("varchar(max)");
 
@@ -35,7 +35,7 @@ namespace ManejadorCheckpoint.Models
                     .WithMany(p => p.PuntoControl)
                     .HasForeignKey(d => d.IdUbicacion)
                     .OnDelete(DeleteBehavior.Restrict)
-                    .HasConstraintName("FK__PuntoCont__IdUbi__2A4B4B5E");
+                    .HasConstraintName("FK__PuntoCont__IdUbi__403A8C7D");
             });
 
             modelBuilder.Entity<RegistroPunto>(entity =>
@@ -47,7 +47,7 @@ namespace ManejadorCheckpoint.Models
             modelBuilder.Entity<Ruta>(entity =>
             {
                 entity.HasKey(e => e.IdRuta)
-                    .HasName("PK__Ruta__887538FE1AEC02FB");
+                    .HasName("PK__Ruta__887538FEAF77599B");
             });
 
             modelBuilder.Entity<RutaPunto>(entity =>
@@ -59,9 +59,7 @@ namespace ManejadorCheckpoint.Models
             modelBuilder.Entity<TipoVehiculo>(entity =>
             {
                 entity.HasKey(e => e.IdTipoVehiculo)
-                    .HasName("PK__TipoVehi__DC20741EFDA3D675");
-
-                entity.Property(e => e.IdTipoVehiculo).ValueGeneratedNever();
+                    .HasName("PK__TipoVehi__DC20741EC53D426F");
 
                 entity.Property(e => e.Etiqueta)
                     .IsRequired()
@@ -71,13 +69,13 @@ namespace ManejadorCheckpoint.Models
                     .WithMany(p => p.TipoVehiculo)
                     .HasForeignKey(d => d.IdRuta)
                     .OnDelete(DeleteBehavior.Restrict)
-                    .HasConstraintName("FK__TipoVehic__IdRut__22AA2996");
+                    .HasConstraintName("FK__TipoVehic__IdRut__38996AB5");
             });
 
             modelBuilder.Entity<Ubicacion>(entity =>
             {
                 entity.HasKey(e => e.IdUbicacion)
-                    .HasName("PK__Ubicacio__778CAB1D2F33DE89");
+                    .HasName("PK__Ubicacio__778CAB1D52DA2120");
 
                 entity.Property(e => e.Referencia).HasColumnType("varchar(max)");
             });
@@ -85,9 +83,7 @@ namespace ManejadorCheckpoint.Models
             modelBuilder.Entity<Vehiculo>(entity =>
             {
                 entity.HasKey(e => e.IdVehiculo)
-                    .HasName("PK__Vehiculo__70861215A1DA197B");
-
-                entity.Property(e => e.IdVehiculo).ValueGeneratedNever();
+                    .HasName("PK__Vehiculo__7086121584A5AFC1");
 
                 entity.Property(e => e.Placa)
                     .IsRequired()
@@ -97,7 +93,7 @@ namespace ManejadorCheckpoint.Models
                     .WithMany(p => p.Vehiculo)
                     .HasForeignKey(d => d.IdTipoVehiculo)
                     .OnDelete(DeleteBehavior.Restrict)
-                    .HasConstraintName("FK__Vehiculo__IdTipo__25869641");
+                    .HasConstraintName("FK__Vehiculo__IdTipo__3B75D760");
             });
         }
     }
