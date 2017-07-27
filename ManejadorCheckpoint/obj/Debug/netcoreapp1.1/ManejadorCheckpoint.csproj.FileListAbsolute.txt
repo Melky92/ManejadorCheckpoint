@@ -1,0 +1,9 @@
+c:\users\dell\documents\visual studio 2017\Projects\ManejadorCheckpoint\ManejadorCheckpoint\bin\Debug\netcoreapp1.1\ManejadorCheckpoint.deps.json
+c:\users\dell\documents\visual studio 2017\Projects\ManejadorCheckpoint\ManejadorCheckpoint\bin\Debug\netcoreapp1.1\ManejadorCheckpoint.runtimeconfig.json
+c:\users\dell\documents\visual studio 2017\Projects\ManejadorCheckpoint\ManejadorCheckpoint\bin\Debug\netcoreapp1.1\ManejadorCheckpoint.runtimeconfig.dev.json
+c:\users\dell\documents\visual studio 2017\Projects\ManejadorCheckpoint\ManejadorCheckpoint\bin\Debug\netcoreapp1.1\ManejadorCheckpoint.dll
+c:\users\dell\documents\visual studio 2017\Projects\ManejadorCheckpoint\ManejadorCheckpoint\obj\Debug\netcoreapp1.1\ManejadorCheckpoint.csprojResolveAssemblyReference.cache
+c:\users\dell\documents\visual studio 2017\Projects\ManejadorCheckpoint\ManejadorCheckpoint\obj\Debug\netcoreapp1.1\ManejadorCheckpoint.AssemblyInfo.cs
+C:\Users\Dell\documents\visual studio 2017\Projects\ManejadorCheckpoint\ManejadorCheckpoint\bin\Debug\netcoreapp1.1\ManejadorCheckpoint.pdb
+C:\Users\Dell\documents\visual studio 2017\Projects\ManejadorCheckpoint\ManejadorCheckpoint\obj\Debug\netcoreapp1.1\ManejadorCheckpoint.dll
+C:\Users\Dell\documents\visual studio 2017\Projects\ManejadorCheckpoint\ManejadorCheckpoint\obj\Debug\netcoreapp1.1\ManejadorCheckpoint.pdb
