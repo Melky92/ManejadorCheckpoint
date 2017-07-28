@@ -11,9 +11,9 @@ namespace ManejadorCheckpoint.Controllers
 {
     public class RutaController : Controller
     {
-        private readonly CHECKPOINTContext _context;
+        private readonly checkpointContext _context;
 
-        public RutaController(CHECKPOINTContext context)
+        public RutaController(checkpointContext context)
         {
             _context = context;    
         }

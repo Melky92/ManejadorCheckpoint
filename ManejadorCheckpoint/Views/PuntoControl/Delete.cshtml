@@ -13,16 +13,28 @@
     <dl class="dl-horizontal">
         <input type="hidden" asp-for="IdPuntoControl" />
         <dt>
+            @Html.DisplayNameFor(model => model.Longitud)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Longitud)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Latitud)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Latitud)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Referencia)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Referencia)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.DescripcionDispositivo)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.DescripcionDispositivo)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.IdUbicacionNavigation)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.IdUbicacionNavigation.IdUbicacion)
         </dd>
     </dl>
     

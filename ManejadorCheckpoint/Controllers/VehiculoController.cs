@@ -11,9 +11,9 @@ namespace ManejadorCheckpoint.Controllers
 {
     public class VehiculoController : Controller
     {
-        private readonly CHECKPOINTContext _context;
+        private readonly checkpointContext _context;
 
-        public VehiculoController(CHECKPOINTContext context)
+        public VehiculoController(checkpointContext context)
         {
             _context = context;    
         }
@@ -21,8 +21,8 @@ namespace ManejadorCheckpoint.Controllers
         // GET: Vehiculo
         public async Task<IActionResult> Index()
         {
-            var cHECKPOINTContext = _context.Vehiculo.Include(v => v.IdTipoVehiculoNavigation);
-            return View(await cHECKPOINTContext.ToListAsync());
+            var checkpointContext = _context.Vehiculo.Include(v => v.IdTipoVehiculoNavigation);
+            return View(await checkpointContext.ToListAsync());
         }
 
         // GET: Vehiculo/Details/5
@@ -56,7 +56,7 @@ namespace ManejadorCheckpoint.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdVehiculo,Placa,IdTipoVehiculo")] Vehiculo vehiculo)
+        public async Task<IActionResult> Create([Bind("IdVehiculo,Placa,IdentificadorBt,IdTipoVehiculo")] Vehiculo vehiculo)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace ManejadorCheckpoint.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdVehiculo,Placa,IdTipoVehiculo")] Vehiculo vehiculo)
+        public async Task<IActionResult> Edit(int id, [Bind("IdVehiculo,Placa,IdentificadorBt,IdTipoVehiculo")] Vehiculo vehiculo)
         {
             if (id != vehiculo.IdVehiculo)
             {

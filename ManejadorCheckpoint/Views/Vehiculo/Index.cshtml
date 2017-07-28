@@ -15,6 +15,9 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Placa)
                 </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IdentificadorBt)
+                </th>
             <th>
                 @Html.DisplayNameFor(model => model.IdTipoVehiculoNavigation)
             </th>
@@ -26,6 +29,9 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Placa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdentificadorBt)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.IdTipoVehiculoNavigation.Etiqueta)

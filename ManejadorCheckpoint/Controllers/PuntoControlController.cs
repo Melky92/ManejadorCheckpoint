@@ -11,9 +11,9 @@ namespace ManejadorCheckpoint.Controllers
 {
     public class PuntoControlController : Controller
     {
-        private readonly CHECKPOINTContext _context;
+        private readonly checkpointContext _context;
 
-        public PuntoControlController(CHECKPOINTContext context)
+        public PuntoControlController(checkpointContext context)
         {
             _context = context;    
         }
@@ -21,8 +21,7 @@ namespace ManejadorCheckpoint.Controllers
         // GET: PuntoControl
         public async Task<IActionResult> Index()
         {
-            var cHECKPOINTContext = _context.PuntoControl.Include(p => p.IdUbicacionNavigation);
-            return View(await cHECKPOINTContext.ToListAsync());
+            return View(await _context.PuntoControl.ToListAsync());
         }
 
         // GET: PuntoControl/Details/5
@@ -34,7 +33,6 @@ namespace ManejadorCheckpoint.Controllers
             }
 
             var puntoControl = await _context.PuntoControl
-                .Include(p => p.IdUbicacionNavigation)
                 .SingleOrDefaultAsync(m => m.IdPuntoControl == id);
             if (puntoControl == null)
             {
@@ -47,7 +45,6 @@ namespace ManejadorCheckpoint.Controllers
         // GET: PuntoControl/Create
         public IActionResult Create()
         {
-            ViewData["IdUbicacion"] = new SelectList(_context.Ubicacion, "IdUbicacion", "IdUbicacion");
             return View();
         }
 
@@ -56,7 +53,7 @@ namespace ManejadorCheckpoint.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdPuntoControl,DescripcionDispositivo,IdUbicacion")] PuntoControl puntoControl)
+        public async Task<IActionResult> Create([Bind("IdPuntoControl,Longitud,Latitud,Referencia,DescripcionDispositivo")] PuntoControl puntoControl)
         {
             if (ModelState.IsValid)
             {
@@ -64,7 +61,6 @@ namespace ManejadorCheckpoint.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewData["IdUbicacion"] = new SelectList(_context.Ubicacion, "IdUbicacion", "IdUbicacion", puntoControl.IdUbicacion);
             return View(puntoControl);
         }
 
@@ -81,7 +77,6 @@ namespace ManejadorCheckpoint.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdUbicacion"] = new SelectList(_context.Ubicacion, "IdUbicacion", "IdUbicacion", puntoControl.IdUbicacion);
             return View(puntoControl);
         }
 
@@ -90,7 +85,7 @@ namespace ManejadorCheckpoint.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdPuntoControl,DescripcionDispositivo,IdUbicacion")] PuntoControl puntoControl)
+        public async Task<IActionResult> Edit(int id, [Bind("IdPuntoControl,Longitud,Latitud,Referencia,DescripcionDispositivo")] PuntoControl puntoControl)
         {
             if (id != puntoControl.IdPuntoControl)
             {
@@ -117,7 +112,6 @@ namespace ManejadorCheckpoint.Controllers
                 }
                 return RedirectToAction("Index");
             }
-            ViewData["IdUbicacion"] = new SelectList(_context.Ubicacion, "IdUbicacion", "IdUbicacion", puntoControl.IdUbicacion);
             return View(puntoControl);
         }
 
@@ -130,7 +124,6 @@ namespace ManejadorCheckpoint.Controllers
             }
 
             var puntoControl = await _context.PuntoControl
-                .Include(p => p.IdUbicacionNavigation)
                 .SingleOrDefaultAsync(m => m.IdPuntoControl == id);
             if (puntoControl == null)
             {

@@ -32,8 +32,8 @@ namespace ManejadorCheckpoint
             // Add framework services.
             services.AddMvc();
 
-            var connection = @"Data Source=USER;Initial Catalog=CHECKPOINT;Integrated Security=True;Persist Security Info=True;User ID=Dell";
-            services.AddDbContext<CHECKPOINTContext>(options => options.UseSqlServer(connection));
+            var connection = @"Server=tcp:hackbo.database.windows.net,1433;Initial Catalog=checkpoint;Persist Security Info=False;User ID=melky;Password=*grupofoco555;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=90;";
+            services.AddDbContext<checkpointContext>(options => options.UseSqlServer(connection));
 
         }
 

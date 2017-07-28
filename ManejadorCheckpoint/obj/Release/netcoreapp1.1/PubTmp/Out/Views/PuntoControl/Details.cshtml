@@ -1,0 +1,42 @@
+@model ManejadorCheckpoint.Models.PuntoControl
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PuntoControl</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Longitud)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Longitud)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Latitud)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Latitud)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Referencia)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Referencia)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DescripcionDispositivo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DescripcionDispositivo)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IdPuntoControl">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

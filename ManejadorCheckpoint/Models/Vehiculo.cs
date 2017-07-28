@@ -7,6 +7,7 @@ namespace ManejadorCheckpoint.Models
     {
         public int IdVehiculo { get; set; }
         public string Placa { get; set; }
+        public string IdentificadorBt { get; set; }
         public int IdTipoVehiculo { get; set; }
 
         public virtual TipoVehiculo IdTipoVehiculoNavigation { get; set; }

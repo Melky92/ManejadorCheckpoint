@@ -14,20 +14,16 @@ CREATE TABLE TipoVehiculo (
 CREATE TABLE Vehiculo (
     IdVehiculo int IDENTITY(1,1) PRIMARY KEY,
     Placa varchar(MAX) NOT NULL,
+	IdentificadorBt varchar(MAX),
     IdTipoVehiculo int NOT NULL FOREIGN KEY REFERENCES TipoVehiculo(IdTipoVehiculo)
 );
 
-CREATE TABLE Ubicacion
-(
-    IdUbicacion int IDENTITY(1,1) PRIMARY KEY,
-	Longitud float NOT NULL,
-	Latitud float NOT NULL,
-	Referencia varchar(MAX)
-);
 CREATE TABLE PuntoControl (
     IdPuntoControl int IDENTITY(1,1) PRIMARY KEY,
-	DescripcionDispositivo varchar(MAX),	
-    IdUbicacion int NOT NULL FOREIGN KEY REFERENCES Ubicacion(IdUbicacion)
+	Longitud float NOT NULL,
+	Latitud float NOT NULL,
+	Referencia varchar(MAX),
+	DescripcionDispositivo varchar(MAX)
 );
 CREATE TABLE RegistroPunto
 (

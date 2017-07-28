@@ -1,0 +1,53 @@
+@model IEnumerable<ManejadorCheckpoint.Models.PuntoControl>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Longitud)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Latitud)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Referencia)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DescripcionDispositivo)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Longitud)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Latitud)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Referencia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescripcionDispositivo)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdPuntoControl">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdPuntoControl">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdPuntoControl">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

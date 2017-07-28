@@ -1,0 +1,56 @@
+@model ManejadorCheckpoint.Models.RegistroPunto
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<form asp-action="Create">
+    <div class="form-horizontal">
+        <h4>RegistroPunto</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="IdVehiculo" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="IdVehiculo" class="form-control" />
+                <span asp-validation-for="IdVehiculo" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="IdPunto" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="IdPunto" class="form-control" />
+                <span asp-validation-for="IdPunto" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="FechaHora" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="FechaHora" class="form-control" />
+                <span asp-validation-for="FechaHora" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Debug" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Debug" class="form-control" />
+                <span asp-validation-for="Debug" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

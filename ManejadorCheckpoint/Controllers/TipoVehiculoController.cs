@@ -11,9 +11,9 @@ namespace ManejadorCheckpoint.Controllers
 {
     public class TipoVehiculoController : Controller
     {
-        private readonly CHECKPOINTContext _context;
+        private readonly checkpointContext _context;
 
-        public TipoVehiculoController(CHECKPOINTContext context)
+        public TipoVehiculoController(checkpointContext context)
         {
             _context = context;    
         }
@@ -21,8 +21,8 @@ namespace ManejadorCheckpoint.Controllers
         // GET: TipoVehiculo
         public async Task<IActionResult> Index()
         {
-            var cHECKPOINTContext = _context.TipoVehiculo.Include(t => t.IdRutaNavigation);
-            return View(await cHECKPOINTContext.ToListAsync());
+            var checkpointContext = _context.TipoVehiculo.Include(t => t.IdRutaNavigation);
+            return View(await checkpointContext.ToListAsync());
         }
 
         // GET: TipoVehiculo/Details/5
